@@ -1,0 +1,253 @@
+/*****************************************************
+                         VARS                            
+*****************************************************/
+/*****************************************************
+                         MAIN STYLES                           
+*****************************************************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  background: #0f1424;
+  margin: 0;
+  min-height: 100%;
+}
+
+/*****************************************************
+                         CONTAINER                           
+*****************************************************/
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "author work play study" "author exercise social self-care";
+  gap: 1rem;
+}
+
+/*****************************************************
+                         MAIN CARD                           
+*****************************************************/
+.main-card {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  grid-area: author;
+  border-radius: 1rem;
+}
+
+.main-card img {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.main-card .author {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 3rem 1rem 1rem;
+  margin-bottom: auto;
+  background: #5847eb;
+  border-radius: 1rem;
+  z-index: 2;
+  flex: 6;
+}
+
+.main-card .author__report {
+  font-size: 0.8rem;
+  color: #bdc1ff;
+}
+
+.main-card .author__name p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.main-card .times {
+  background: #1c1f4a;
+  padding: 2rem 1rem 1rem;
+  border-radius: 1rem;
+  margin-top: -20px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 0.9rem;
+  color: #bdc1ff;
+}
+
+.main-card .times .time {
+  color: #bdc1ff;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.main-card .times .time:hover {
+  color: white;
+}
+
+.main-card .times .time.active {
+  color: white;
+}
+
+/*****************************************************
+                         SECTIONS                           
+*****************************************************/
+section {
+  color: white;
+  border-radius: 1rem;
+  background-clip: padding-box !important;
+  border-radius: 18px;
+}
+
+section > .time {
+  padding: 1rem;
+  background: #1c1f4a;
+  margin-top: 3rem;
+  border-radius: 1rem;
+}
+
+section > .time:hover {
+  background: #6f76c8;
+  cursor: pointer;
+}
+
+section > .time .workout-time {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+section > .time .date {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #bdc1ff;
+}
+
+section .option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+section .option img {
+  margin-left: auto;
+}
+
+section .option img:hover {
+  cursor: pointer;
+}
+
+section .option h4 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+section.exercise {
+  background: #4acf81;
+  background-clip: padding-box;
+  background-image: url("./../img/icon-exercise.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+section.work {
+  background: #ff8c66;
+  background-image: url("./../img/icon-work.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+section.play {
+  background: #56c2e6;
+  background-image: url("./../img/icon-play.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+section.study {
+  background: #ff5c7c;
+  background-image: url("./../img/icon-study.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+section.social {
+  background: #7536d3;
+  background-image: url("./../img/icon-social.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+section.self.care {
+  background: #f1c65b;
+  background-image: url("./../img/icon-self-care.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 0;
+}
+
+/*****************************************************
+                         RESPONSIVE                           
+*****************************************************/
+@media screen and (max-width: 635px) {
+  #app {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "author work play" "author exercise social" ". study self-care";
+  }
+}
+
+@media screen and (max-width: 473px) {
+  #app {
+    margin: 2rem 0.5rem 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: none;
+    width: 100%;
+  }
+  .main-card {
+    grid-area: unset;
+  }
+  .main-card .author {
+    flex-direction: row;
+  }
+  .main-card .author img {
+    align-self: center;
+    margin-bottom: 0;
+  }
+  .main-card .author__details {
+    margin-left: 1rem;
+  }
+  .main-card .author__name {
+    display: flex;
+  }
+  .main-card .author__name p {
+    font-size: 1rem;
+  }
+  .main-card .times {
+    flex-direction: row;
+  }
+  .workout {
+    display: flex;
+    align-items: center;
+  }
+  .workout .date {
+    margin-left: auto;
+  }
+}

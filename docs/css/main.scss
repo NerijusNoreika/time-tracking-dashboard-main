@@ -1,0 +1,298 @@
+
+/*****************************************************
+                         VARS                            
+*****************************************************/
+
+$fontSize: 18px;
+
+$font: 'Rubik', sans-serif;
+
+$defaultRadius: 1rem;
+
+
+$primaryBlue: hsl(246, 80%, 60%);
+$primaryLightRedWork: hsl(15, 100%, 70%);
+$primarySoftBluePlay: hsl(195, 74%, 62%);
+$primaryLightRedStudy: hsl(348, 100%, 68%);
+$primaryLimeGreenExercise: hsl(145, 58%, 55%);
+$primaryVioletSocial: hsl(264, 64%, 52%);
+$primarySoftOrangeSelfCare: hsl(43, 84%, 65%);
+
+
+$neutralVeryDarkBlue: hsl(226, 43%, 10%);
+$neutralDarkBlue: hsl(235, 46%, 20%);
+$neutralDesaturatedBlue: hsl(235, 45%, 61%);
+$neutralPaleBlue: hsl(236, 100%, 87%);
+
+
+/*****************************************************
+                         MAIN STYLES                           
+*****************************************************/
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font;
+    font-size: $fontSize;
+    background: $neutralVeryDarkBlue;
+    margin: 0;
+    min-height: 100%;
+}
+
+/*****************************************************
+                         CONTAINER                           
+*****************************************************/
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+        "author work play study"
+        "author exercise social self-care";
+    gap: 1rem
+}
+
+
+/*****************************************************
+                         MAIN CARD                           
+*****************************************************/
+
+
+.main-card {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    grid-area: author;
+
+    border-radius: $defaultRadius;
+    img {
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        align-self: flex-start;
+        margin-bottom: 1.5rem;
+    }
+    .author {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 3rem 1rem 1rem;
+        margin-bottom: auto;
+        background: $primaryBlue;
+        border-radius: $defaultRadius;
+        z-index: 2;
+        flex: 6;
+
+        &__report {
+            font-size: 0.8rem;
+            color: $neutralPaleBlue;
+        }
+
+        &__name p {
+            margin: 0;
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+    }
+
+    .times {
+        background: $neutralDarkBlue;
+        padding: 2rem 1rem 1rem;
+        border-radius: $defaultRadius;
+        margin-top: -20px;
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 0.9rem;
+        color: $neutralPaleBlue;
+
+        .time {
+            color: $neutralPaleBlue;
+            text-decoration: none;
+            font-weight: 300;
+
+            &:hover {
+                color: white;
+            }
+
+            &.active {
+                color: white;
+            }
+        }
+        
+    }
+}
+
+
+/*****************************************************
+                         SECTIONS                           
+*****************************************************/
+
+
+section {
+    color: white;
+    border-radius: $defaultRadius;
+    background-clip: padding-box !important;
+    border-radius: 18px;
+
+    > .time {
+        padding: 1rem;
+        background: $neutralDarkBlue;
+        margin-top: 3rem;
+        border-radius: $defaultRadius;
+      
+        &:hover {
+            background: $neutralDesaturatedBlue;
+            cursor: pointer;
+        }
+        .workout-time {
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        .date {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: $neutralPaleBlue;
+        }
+    }
+
+    .option{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        img {
+
+            margin-left: auto;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        h4 {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin: 0;
+        }   
+    }
+}
+
+
+section.exercise {
+    background: $primaryLimeGreenExercise;
+    background-clip: padding-box;
+    background-image: url('./../img/icon-exercise.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+}
+
+section.work {
+    background: $primaryLightRedWork;
+    background-image: url('./../img/icon-work.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+}
+
+section.play {
+    background: $primarySoftBluePlay;
+    background-image: url('./../img/icon-play.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+}
+
+section.study {
+    background: $primaryLightRedStudy;
+    background-image: url('./../img/icon-study.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+}
+
+section.social {
+    background: $primaryVioletSocial;
+    background-image: url('./../img/icon-social.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+}
+
+section.self.care {
+    background: $primarySoftOrangeSelfCare;
+    background-image: url('./../img/icon-self-care.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 0;
+}
+
+
+/*****************************************************
+                         RESPONSIVE                           
+*****************************************************/
+
+
+@media screen and (max-width: 635px) {
+    #app {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+            "author work play"
+            "author exercise social"
+            ". study self-care";
+    }
+}
+
+@media screen and (max-width: 473px) {
+    #app {
+        margin: 2rem 0.5rem 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: none;
+        width: 100%;
+    }
+
+    .main-card {
+        grid-area: unset;
+
+        .author {
+            flex-direction: row;
+            img {
+                align-self: center;
+                margin-bottom: 0;
+            }
+
+            &__details {
+            margin-left: 1rem;
+
+            }
+            &__name {
+                display: flex;
+                p {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .times {
+            flex-direction: row;
+        }
+    }
+
+    .workout {
+        display: flex;
+        align-items: center;
+
+        .date {
+            margin-left: auto;
+        }
+    }
+}

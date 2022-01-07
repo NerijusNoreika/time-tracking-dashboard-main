@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+  <title>Frontend Mentor | Time tracking dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <main id="app">
+
+
+    <div class="main-card">
+
+      <div class="author">
+        <img src="./img/image-jeremy.png" alt="">
+        <div class="author__details">
+          <span class="author__report">Report for</span>
+
+          <div class="author__name">
+            <p>Jeremy</p>
+            <p>Robson</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="times">
+        <a class="time" :class="{ active : currentTimeframe == 'day'}" @click="switchData('day')" href="#">Daily</a>
+        <a class="time" :class="{ active : currentTimeframe == 'week'}"@click="switchData('week')" href="#">Weekly</a>
+        <a class="time" :class="{ active : currentTimeframe == 'month'}"@click="switchData('month')" href="#">Monthly</a>
+      </div>
+    </div>
+
+  
+   
+    
+
+    <card v-for="workout in info"
+          :title="workout.title"
+          :time="workout.timeframes"
+          :timeframe="currentTimeframe.toLowerCase()"
+           />
+
+  
+  </main>
+  
+  
+
+  
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
